@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IntroActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/large"
+    android:background="@drawable/intro_background">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/medium"
+        android:text="Project Manager"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/man_task_image"
+        android:layout_marginBottom="@dimen/large"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Let's get started"
+        android:textSize="22sp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_marginBottom="@dimen/small"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/intro"
+        android:layout_marginBottom="@dimen/hyper_large"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in"
+        android:id="@+id/btn_sign_in_intro"
+        android:textSize="16sp"
+        android:background="@drawable/bg_sign_in_btn"
+        app:backgroundTint="@null"
+        android:layout_marginBottom="@dimen/medium"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:id="@+id/btn_sign_up_intro"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        app:backgroundTint="@null"
+        android:background="@drawable/bg_sign_up_btn"/>
+</LinearLayout>
