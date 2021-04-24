@@ -9,21 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProMan.NoActionBar">
-        <activity android:name=".SignInActivity"
+        <activity android:name=".activity.BaseActivity"></activity>
+        <activity
+            android:name=".activity.SignInActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.ProMan.NoActionBar" />
+        <activity
+            android:name=".activity.SignUpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ProMan.NoActionBar"></activity>
         <activity
-            android:name=".SignUpActivity"
+            android:name=".activity.IntroActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.ProMan.NoActionBar"></activity>
         <activity
-            android:name=".IntroActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar">
-        </activity>
-        <activity
-            android:name=".LauncherActivity"
+            android:name=".activity.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.ProMan.NoActionBar">
             <intent-filter>
@@ -32,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.MainActivity" />
     </application>
 
 </manifest>

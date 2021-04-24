@@ -1,4 +1,4 @@
-package hust.haicm184253.proman
+package hust.haicm184253.proman.activity
 
 import android.content.Intent
 import android.graphics.Typeface
@@ -7,6 +7,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.TextView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import hust.haicm184253.proman.R
 
 class LauncherActivity : AppCompatActivity() {
 
@@ -22,10 +26,14 @@ class LauncherActivity : AppCompatActivity() {
         tvProjectManager.typeface = Typeface.createFromAsset(assets, "WinterYesterday.ttf")
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, IntroActivity::class.java))
+            var intent: Intent
+            if(FirebaseAuth.getInstance().currentUser == null)
+                intent = Intent(this, IntroActivity::class.java)
+            else
+                intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }, 2500)
-
 
     }
 }

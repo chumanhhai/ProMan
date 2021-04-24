@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "268906448972",
+    "project_id": "proman-c43ad",
+    "storage_bucket": "proman-c43ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268906448972:android:af07bb9e2e4a7796980ce9",
+        "android_client_info": {
+          "package_name": "hust.haicm184253.proman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268906448972-h95kieuaa1idqutdt7uterb1vb49ive0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hust.haicm184253.proman",
+            "certificate_hash": "7943e5b9d88986d4494ef6dfd5378fbcc5f125e0"
+          }
+        },
+        {
+          "client_id": "268906448972-g199hknogfu36eg3pqgmnqr9dbulpv33.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU5hVT1P0v58kmZpXaKfTsG-iJaJwBoI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268906448972-g199hknogfu36eg3pqgmnqr9dbulpv33.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

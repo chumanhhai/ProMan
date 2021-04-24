@@ -1,7 +1,8 @@
-package hust.haicm184253.proman
+package hust.haicm184253.proman.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import hust.haicm184253.proman.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

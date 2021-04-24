@@ -8,4 +8,5 @@
     <color name="colorPrimaryText">#212121</color>
     <color name="colorSecondaryText">#757575</color>
     <color name="colorBlueLight">#7ad7f0</color>
+    <color name="colorRedWarning">#ff0f0f</color>
 </resources>
