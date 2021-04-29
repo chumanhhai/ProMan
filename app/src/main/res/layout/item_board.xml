@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="@dimen/medium"
+    android:layout_marginVertical="@dimen/small"
+    app:cardElevation="7dp"
+    app:cardCornerRadius="7dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/medium"
+        android:background="?android:attr/selectableItemBackground">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/img_work"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/colorPrimary"
+            android:id="@+id/civ_item_board"
+            android:layout_marginRight="@dimen/large"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Board name"
+                android:textColor="@color/colorPrimaryText"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:id="@+id/tv_item_board_board_name"
+                android:layout_marginBottom="@dimen/small"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="owner name"
+                android:id="@+id/tv_item_board_owner_name"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="status: "/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="continute"
+                    android:id="@+id/tv_item_board_status_continue"
+                    android:textColor="@color/colorYellow"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="finished"
+                    android:id="@+id/tv_item_board_status_finished"
+                    android:textColor="@color/colorGreen"
+                    android:visibility="gone"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

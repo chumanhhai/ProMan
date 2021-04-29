@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="toolbar_whiteTitle_whiteIndicator">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/colorPrimaryText</item>
+    </style>
 </resources>

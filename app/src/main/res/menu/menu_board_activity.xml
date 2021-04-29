@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_board_info"
+        android:title="Infomation"
+        android:icon="@drawable/ic_info_white"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="0"/>
+    <item android:id="@+id/action_board_member"
+        android:title="Member"
+        android:icon="@drawable/ic_person_white"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="1"/>
+    <item android:id="@+id/action_board_finish"
+        android:title="Finish project"
+        android:icon="@drawable/ic_check_white"
+        app:showAsAction="never"
+        android:orderInCategory="2"/>
+    <item android:id="@+id/action_board_delete"
+        android:title="Delete project"
+        android:icon="@drawable/ic_trash_white"
+        app:showAsAction="never"
+        android:orderInCategory="3"/>
+</menu>

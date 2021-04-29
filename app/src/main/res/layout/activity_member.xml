@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MemberListActivity"
+    android:orientation="vertical"
+    android:background="@drawable/intro_background">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tb_member_activity"
+        android:background="@color/colorPrimary"
+        android:theme="@style/toolbar_whiteTitle_whiteIndicator"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/large"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Host"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="@dimen/small"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_host"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Members"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginBottom="@dimen/medium"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No memmbers."
+            android:id="@+id/tv_no_members"
+            android:layout_marginTop="50dp"
+            android:gravity="center"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rv_member"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

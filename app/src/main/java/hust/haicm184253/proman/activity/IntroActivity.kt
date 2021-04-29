@@ -16,6 +16,9 @@ class IntroActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
 
+        // hide status bar
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+
         // set view
         btnSignUpIntro = findViewById(R.id.btn_sign_up_intro)
         btnSignInIntro = findViewById(R.id.btn_sign_in_intro)

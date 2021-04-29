@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="hust.haicm184253.proman">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,30 +11,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProMan.NoActionBar">
-        <activity android:name=".activity.BaseActivity"></activity>
+        <activity android:name=".activity.CreateTaskActivity"></activity>
+        <activity android:name=".activity.MemberInfoActivity" />
+        <activity android:name=".activity.MemberListActivity" />
+        <activity android:name=".activity.BoardInfoActivity" />
+        <activity android:name=".activity.BoardActivity" />
+        <activity android:name=".activity.CreateBoardActivity" />
+        <activity android:name=".activity.MyProfileActivity" />
+        <activity android:name=".activity.BaseActivity" />
         <activity
             android:name=".activity.SignInActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.SignUpActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.IntroActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LauncherActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Theme.ProMan.NoActionBar">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

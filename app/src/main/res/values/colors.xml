@@ -9,4 +9,7 @@
     <color name="colorSecondaryText">#757575</color>
     <color name="colorBlueLight">#7ad7f0</color>
     <color name="colorRedWarning">#ff0f0f</color>
+    <color name="colorGreyLight">#CECECE</color>
+    <color name="colorYellow">#b8860b</color>
+    <color name="colorGreen">#06a10b</color>
 </resources>

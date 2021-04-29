@@ -3,4 +3,5 @@
     <string name="intro">Collaborative and plan together across multiple devices by ProMan\'s interface.</string>
     <string name="intro_sign_up">Enter your email, password, name to join with us.</string>
     <string name="intro_sign_in">Enter your email, password to join with us.</string>
+    <string name="went_wrong">Something went wrong!</string>
 </resources>

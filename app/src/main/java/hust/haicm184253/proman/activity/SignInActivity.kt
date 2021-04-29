@@ -27,7 +27,7 @@ class SignInActivity : BaseActivity() {
         tbSignIn = findViewById(R.id.tb_sign_in)
         setSupportActionBar(tbSignIn)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_back_indicator)
+        supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_back_indicator_text_primary)
         supportActionBar!!.setTitle("")
         tbSignIn.setNavigationOnClickListener {
             onBackPressed()
@@ -65,6 +65,7 @@ class SignInActivity : BaseActivity() {
                     .addOnCompleteListener { task ->
                         if(task.isSuccessful) {
                             startActivity(Intent(this, MainActivity::class.java))
+                            finish()
                         } else {
                             showToast("Login Failed!")
                         }

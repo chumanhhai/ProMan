@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:id="@+id/tb_main_activity"
+            app:title="Project Manager"
+            android:background="@color/colorPrimary"
+            android:theme="@style/toolbar_whiteTitle_whiteIndicator"
+            android:layout_marginBottom="@dimen/large"/>
+        <ProgressBar
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:id="@+id/pb_content_main_activity_loading"
+            android:indeterminateTint="@color/colorSecondaryText"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/ll_content_main"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No Board is available. Please create one."
+                android:visibility="visible"
+                android:id="@+id/tv_no_boards"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_board"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:id="@+id/fab_create_board"
+        android:layout_margin="35dp"
+        android:src="@drawable/ic_add_white"
+        app:tint="@null"/>
+
+</FrameLayout>

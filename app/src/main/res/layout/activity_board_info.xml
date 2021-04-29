@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.BoardInfoActivity"
+    android:background="@drawable/intro_background">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tb_board_info_activity"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large"
+        app:cardElevation="7dp"
+        app:cardCornerRadius="7dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/large"
+            android:orientation="vertical">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/civSize"
+                android:layout_height="@dimen/civSize"
+                android:src="@drawable/img_work"
+                android:layout_gravity="center"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="1dp"
+                android:layout_marginBottom="@dimen/hyper_large"
+                android:id="@+id/civ_board_info_img"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/large">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name: "
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="board name"
+                    android:paddingLeft="@dimen/small"
+                    android:id="@+id/tv_board_info_name"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/large">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Description: "
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="board description"
+                    android:paddingLeft="@dimen/small"
+                    android:id="@+id/tv_board_info_description" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/large">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total members: "
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="16"
+                    android:id="@+id/tv_board_info_total_members"
+                    android:layout_marginLeft="@dimen/small"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/large">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status: "
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="@dimen/small"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="continue"
+                    android:id="@+id/tv_board_info_status_continue"
+                    android:textColor="@color/colorYellow"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="finished"
+                    android:id="@+id/tv_board_info_status_finished"
+                    android:visibility="gone"
+                    android:textColor="@color/colorGreen"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

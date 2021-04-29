@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.BoardActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tb_board_activity"
+        android:background="@color/colorPrimary"
+        android:theme="@style/toolbar_whiteTitle_whiteIndicator"
+        android:layout_marginBottom="@dimen/large"/>
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:id="@+id/pb_board_activity_loading"
+        android:indeterminateTint="@color/colorSecondaryText"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/ll_board_activity"
+            android:visibility="gone">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="No task is available. Please create one."
+                android:visibility="visible"
+                android:id="@+id/tv_no_tasks"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rv_task"
+                android:visibility="gone"/>
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:layout_gravity="bottom"
+            android:text="Create a task"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:id="@+id/btn_create_task"/>
+
+    </FrameLayout>
+
+</LinearLayout>
