@@ -1,12 +1,9 @@
 package hust.haicm184253.proman.activity
 
-import android.app.ActionBar
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,7 +12,6 @@ import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
 import hust.haicm184253.proman.R
 import hust.haicm184253.proman.adapter.MemberAdapter
 import hust.haicm184253.proman.model.Board
@@ -123,7 +119,7 @@ class MemberListActivity : BaseActivity(), MemberAdapter.MemberItemOnClickListen
         when(item.itemId) {
             R.id.action_member_list_add_person -> {
                 val dialog = Dialog(this)
-                dialog.setContentView(R.layout.dialog_add_member)
+                dialog.setContentView(R.layout.dialog_board_add_member)
                 val etAddPerson = dialog.findViewById<EditText>(R.id.et_add_member)
                 val btnAddPerson = dialog.findViewById<Button>(R.id.btn_add_person)
                 dialog.window!!.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
@@ -183,7 +179,7 @@ class MemberListActivity : BaseActivity(), MemberAdapter.MemberItemOnClickListen
             }
             R.id.action_member_list_delete_person -> {
                 val dialog = Dialog(this)
-                dialog.setContentView(R.layout.dialog_delete_member)
+                dialog.setContentView(R.layout.dialog_board_delete_member)
                 val etDeletePerson = dialog.findViewById<AutoCompleteTextView>(R.id.et_delete_member)
                 val btnDeletePerson = dialog.findViewById<Button>(R.id.btn_delete_person)
 

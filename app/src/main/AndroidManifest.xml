@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProMan.NoActionBar">
-        <activity android:name=".activity.CreateTaskActivity"></activity>
+        <activity android:name=".activity.TaskInfoActivity"></activity>
+        <activity android:name=".activity.CreateTaskActivity" />
         <activity android:name=".activity.MemberInfoActivity" />
         <activity android:name=".activity.MemberListActivity" />
         <activity android:name=".activity.BoardInfoActivity" />

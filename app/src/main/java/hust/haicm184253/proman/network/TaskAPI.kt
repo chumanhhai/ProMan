@@ -44,5 +44,37 @@ class TaskAPI {
                     failureCallback()
                 }
         }
+
+        fun deleteTask(id: String,
+            successCallback: () -> Unit,
+            failureCallback: () -> Unit) {
+            val db = Firebase.firestore
+
+            db.collection(Utils.COLLECTION_TASK)
+                    .document(id)
+                    .delete()
+                    .addOnSuccessListener {
+                        successCallback()
+                    }
+                    .addOnFailureListener {
+                        failureCallback()
+                    }
+        }
+
+        fun updateTask(id: String, hashMap: HashMap<String, Any>,
+            successCallback: () -> Unit,
+            failureCallback: () -> Unit) {
+            val db = Firebase.firestore
+
+            db.collection(Utils.COLLECTION_TASK)
+                    .document(id)
+                    .update(hashMap)
+                    .addOnSuccessListener {
+                        successCallback()
+                    }
+                    .addOnFailureListener {
+                        failureCallback()
+                    }
+        }
     }
 }

@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -32,11 +33,11 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
     lateinit var nvMainActivity: NavigationView
     lateinit var civUserImagePopup: CircleImageView
     lateinit var tvUserNamePopup: TextView
-    lateinit var pbLoading: ProgressBar
     lateinit var llMainContent: LinearLayout
     lateinit var fabCreateBoard: FloatingActionButton
     lateinit var tvNoBoards: TextView
     lateinit var rvBoards: RecyclerView
+    lateinit var srlMainActivity: SwipeRefreshLayout
 
     lateinit var user: User
     lateinit var boards: ArrayList<Board>
@@ -53,11 +54,11 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
         val headerLayout = nvMainActivity.getHeaderView(0)
         civUserImagePopup = headerLayout.findViewById(R.id.civ_user_image_popup)
         tvUserNamePopup = headerLayout.findViewById(R.id.tv_user_name_popup)
-        pbLoading = findViewById(R.id.pb_content_main_activity_loading)
         llMainContent = findViewById(R.id.ll_content_main)
         fabCreateBoard = findViewById(R.id.fab_create_board)
         tvNoBoards = findViewById(R.id.tv_no_boards)
         rvBoards = findViewById(R.id.rv_board)
+        srlMainActivity = findViewById(R.id.srl_main_activity)
 
         // set action bar
         setToolBar()
@@ -68,6 +69,8 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
         // set on click
         fabCreateBoard.setOnClickListener(this)
 
+        // set swipe to refresh
+        setSwipeToRefresh()
     }
 
     fun  setToolBar() {
@@ -95,6 +98,7 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
     }
 
     fun getData() {
+        srlMainActivity.isRefreshing = true
         // get user data
         UserAPI.getCurrentUser({ userResult: User ->
             // set user UI
@@ -107,19 +111,17 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
                 adapter = BoardAdapter(this, boards, user.name!!)
                 rvBoards.adapter = adapter
                 setMainContentUI()
-                unLoadMainContentUI()
             }, {
                 showSnackBar(resources.getString(R.string.went_wrong), R.color.colorRedWarning)
-                unLoadMainContentUI()
             })
         }, {
             showSnackBar(resources.getString(R.string.went_wrong), R.color.colorRedWarning)
-            unLoadMainContentUI()
         })
 
     }
 
     fun setMainContentUI() {
+        srlMainActivity.isRefreshing = false
         if(boards.size == 0) {
             tvNoBoards.visibility = View.VISIBLE
             rvBoards.visibility = View.GONE
@@ -137,16 +139,6 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
         user.image?.let {
             Utils.setImageUrl(this, civUserImagePopup, user.image, R.drawable.img_profile)
         }
-    }
-
-    fun loadMainContentUI() {
-        pbLoading.visibility = View.VISIBLE
-        llMainContent.visibility = View.GONE
-    }
-
-    fun unLoadMainContentUI() {
-        pbLoading.visibility = View.GONE
-        llMainContent.visibility = View.VISIBLE
     }
 
     override fun onClick(v: View?) {
@@ -180,12 +172,12 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
     }
 
     fun loadBoards() {
-        loadMainContentUI()
+        srlMainActivity.isRefreshing = true
         BoardAPI.getAllBoardsOfCurrentUser({boards ->
             this.boards = boards
-            unLoadMainContentUI()
             setMainContentUI()
             adapter.notifyDataSetChanged()
+            srlMainActivity.isRefreshing = false
         }, {
             showSnackBar(resources.getString(R.string.went_wrong), R.color.colorRedWarning)
         })
@@ -195,5 +187,11 @@ class MainActivity : BaseActivity(), View.OnClickListener, BoardAdapter.BoardIte
         val intent = Intent(this, BoardActivity::class.java)
         intent.putExtra(Utils.SEND_BOARD, board)
         startActivityForResult(intent, Utils.BOARD_CHANGE_REQUEST_CODE)
+    }
+
+    fun setSwipeToRefresh() {
+        srlMainActivity.setOnRefreshListener {
+            loadBoards()
+        }
     }
 }

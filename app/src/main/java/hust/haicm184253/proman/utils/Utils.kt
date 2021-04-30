@@ -73,6 +73,7 @@ class Utils {
         val SEND_HOST = "host info"
         val SEND_ID = "id info"
         val SEND_TASK = "task info"
+        val SEND_OBJECT_INDEX = "index info"
 
         // request code for start activity for result
         val CHOOSE_IMAGE_FROM_GALLERY_REQUEST_CODE = 0
@@ -81,6 +82,7 @@ class Utils {
         val MEMBER_CHANGE_REQUEST_CODE = 3
         val BOARD_CHANGE_REQUEST_CODE = 4
         val GET_TASK_REQUEST_CODE = 5
+        val GET_TASK_FOR_UPDATE_REQUEST_CODE = 6
 
         fun closeKeyboard(context: AppCompatActivity) {
             // this will give us the view

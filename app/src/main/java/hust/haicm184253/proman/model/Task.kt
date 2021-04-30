@@ -4,12 +4,12 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Task(
-        val uid: String? = null,
-        val name: String? = null,
-        val description: String? = null,
-        val createdBy: String? = null,
-        val percent: Int? = null,
-        val assignedUsers: ArrayList<String>? = null
+        var uid: String? = null,
+        var name: String? = null,
+        var description: String? = null,
+        var createdBy: String? = null,
+        var percent: Int? = null,
+        var assignedUsers: ArrayList<String>? = null
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),

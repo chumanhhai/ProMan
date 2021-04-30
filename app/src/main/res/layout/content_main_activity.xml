@@ -15,31 +15,31 @@
             android:background="@color/colorPrimary"
             android:theme="@style/toolbar_whiteTitle_whiteIndicator"
             android:layout_marginBottom="@dimen/large"/>
-        <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:id="@+id/pb_content_main_activity_loading"
-            android:indeterminateTint="@color/colorSecondaryText"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:id="@+id/ll_content_main"
-            android:visibility="gone">
-            <TextView
+            android:id="@+id/ll_content_main">
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="No Board is available. Please create one."
-                android:visibility="visible"
-                android:id="@+id/tv_no_boards"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rv_board"
-                android:visibility="gone"/>
+                android:layout_height="wrap_content">
+                <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/srl_main_activity">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/rv_board"/>
+                </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="No Board is available. Please create one."
+                    android:visibility="gone"
+                    android:id="@+id/tv_no_boards"/>
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton

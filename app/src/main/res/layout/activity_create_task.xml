@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Create Board"
+        app:title="Create Task"
         android:id="@+id/tb_create_task"/>
 
     <androidx.cardview.widget.CardView
@@ -59,7 +59,13 @@
                     android:paddingHorizontal="@dimen/medium"
                     android:paddingVertical="@dimen/medium"
                     android:textColor="@color/colorSecondaryText"
-                    android:id="@+id/et_task_assign_users"/>
+                    android:id="@+id/et_task_assign_users"
+                    android:layout_marginBottom="@dimen/small"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Note: only member who is already included in project could be assigned to."
+                    android:textColor="@color/colorYellow"/>
             </com.google.android.material.textfield.TextInputLayout>
             <Button
                 android:layout_width="match_parent"

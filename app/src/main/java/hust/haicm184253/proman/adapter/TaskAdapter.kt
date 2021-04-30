@@ -21,25 +21,30 @@ class TaskAdapter(val context: Context,
                   val members: ArrayList<User>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     val hashMap = HashMap<String, User>()
+    var taskItemOnClickListener: TaskItemOnClickListener
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val self = itemView
         val taskName = itemView.findViewById<TextView>(R.id.tv_item_task_name)
         val pbPercent = itemView.findViewById<ProgressBar>(R.id.pb_item_task_percent)
         val tvPercent = itemView.findViewById<TextView>(R.id.tv_item_task_percent)
-        val iv_add = itemView.findViewById<ImageView>(R.id.iv_task_add)
-        val iv_edit = itemView.findViewById<ImageView>(R.id.iv_task_edit)
-        val iv_remove = itemView.findViewById<ImageView>(R.id.iv_task_remove)
+        val ivAddMember = itemView.findViewById<ImageView>(R.id.iv_task_add_member)
+        val ivRemoveMember = itemView.findViewById<ImageView>(R.id.iv_task_remove_member)
+        val ivRemove = itemView.findViewById<ImageView>(R.id.iv_task_remove)
         val rvMemberList = itemView.findViewById<RecyclerView>(R.id.rv_member_image)
     }
 
     interface TaskItemOnClickListener {
-        fun taskItemOnClick(task: Task)
+        fun taskItem(idx: Int, task: Task, taskMembers: ArrayList<User>)
+        fun taskItemRemove(task: Task)
+        fun taskItemRemoveMember(idx: Int, taskMembers: ArrayList<User>)
+        fun taskItemAddMember(idx: Int, taskMembers: ArrayList<User>)
     }
 
     init {
         for(member in members)
             hashMap[member.uid!!] = member
+        taskItemOnClickListener = context as TaskItemOnClickListener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -59,10 +64,24 @@ class TaskAdapter(val context: Context,
         // set member image list
         val membersList = ArrayList<User>()
         for(memberId in task.assignedUsers!!)
-            membersList.add(hashMap[memberId]!!)
+            if(hashMap[memberId] != null)
+                membersList.add(hashMap[memberId]!!)
         holder.rvMemberList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         holder.rvMemberList.adapter = MemberImageAdapter(context, membersList)
 
+        // set on click
+        holder.self.setOnClickListener {
+            taskItemOnClickListener.taskItem(position, task, membersList)
+        }
+        holder.ivRemove.setOnClickListener {
+            taskItemOnClickListener.taskItemRemove(task)
+        }
+        holder.ivRemoveMember.setOnClickListener {
+            taskItemOnClickListener.taskItemRemoveMember(position, membersList)
+        }
+        holder.ivAddMember.setOnClickListener {
+            taskItemOnClickListener.taskItemAddMember(position, membersList)
+        }
     }
 
     override fun getItemCount(): Int {

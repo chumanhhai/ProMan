@@ -13,35 +13,30 @@
         android:background="@color/colorPrimary"
         android:theme="@style/toolbar_whiteTitle_whiteIndicator"
         android:layout_marginBottom="@dimen/large"/>
-    <ProgressBar
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="100dp"
-        android:id="@+id/pb_board_activity_loading"
-        android:indeterminateTint="@color/colorSecondaryText"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/ll_board_activity"
-            android:visibility="gone">
+            android:layout_height="wrap_content">
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/srl_board_activity">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rv_task"
+                    android:visibility="visible"/>
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="No task is available. Please create one."
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/tv_no_tasks"/>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/rv_task"
-                android:visibility="gone"/>
-        </LinearLayout>
+        </FrameLayout>
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
